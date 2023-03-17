@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.example</groupId>
+    <artifactId>dddplus-demo</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+    <name>DDDplus :: Demo</name>
+    <description>Demonstrate how to use cp-ddd-framework</description>
+
+    <modules>
+        <module>order-center-cp</module>
+        <module>order-center-pattern</module>
+        <module>order-center-bp-ka</module>
+        <module>order-center-bp-isv</module>
+        <module>order-center-bp-fresh</module>
+        <module>order-center-domain-stock</module>
+    </modules>
+
+    <properties>
+        <!-- build configs -->
+        <jdk.version>1.8</jdk.version>
+        <maven.compiler.failOnError>true</maven.compiler.failOnError>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <dddplus.version>1.1.0-SNAPSHOT</dddplus.version>
+
+        <!-- unified 3rd party dependencies version -->
+        <lombok.version>1.18.8</lombok.version>
+        <guava.version>19.0</guava.version>
+        <junit.version>4.13.1</junit.version>
+        <aspectjweaver.version>1.9.1</aspectjweaver.version>
+        <javax.validation.version>1.1.0.Final</javax.validation.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <spring.version>4.3.12.RELEASE</spring.version>
+        <jetty.version>9.4.12.v20180830</jetty.version>
+        <jackson.version>2.4.5</jackson.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>ossrh-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <defaultGoal>package</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.21.0</version>
+                <configuration>
+                    <skipTests>false</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
